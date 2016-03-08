@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Prom Posters</title>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!--fonts-->
+<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->	
+<!-- js -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- js -->
+								<script>
+									$(document).ready(function () {
+										//Initialize tooltips
+										$('.nav-tabs > li a[title]').tooltip();
+										
+										//Wizard
+										$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+											var $target = $(e.target);
+										
+											if ($target.parent().hasClass('disabled')) {
+												return false;
+											}
+										});
+
+										$(".next-step").click(function (e) {
+
+											var $active = $('.wizard .nav-tabs li.active');
+											$active.next().removeClass('disabled');
+											nextTab($active);
+
+										});
+										$(".prev-step").click(function (e) {
+
+											var $active = $('.wizard .nav-tabs li.active');
+											prevTab($active);
+
+										});
+									});
+
+									function nextTab(elem) {
+										$(elem).next().find('a[data-toggle="tab"]').click();
+									}
+									function prevTab(elem) {
+										$(elem).prev().find('a[data-toggle="tab"]').click();
+									}
+								</script>
+</head>
+<body>
+
+<div class="banner">
+	<div class="header">	
+			<div class="logo">
+				<!-- ADD IMG LATER FUCK -->
+			   <h1><a href="index.html"><i><img src="" alt=" " /></i>PromPosters.com</a></h1>
+			</div>
+			<div class="top-nav">
+				<span class="menu"><img src="images/menu.png" alt=" " /></span>
+				<ul class="nav1">
+					<li><a href="index.html" data-toggle="modal" data-target="#myModal">Home</a></li>
+					<li><a href="prom.html" data-toggle="modal" data-target="#myModal2">Prom</a></li>
+					<li><a href="404.html" data-toggle="modal" data-target="#myModal1">Formal</a></li>
+					<li><a href="404.html" data-toggle="modal" data-target="#myModal3">Homecoming</a></li>
+					<li><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="business" value="saturday248@gmail.com">
+<input type="hidden" name="display" value="1">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</li>
+				</ul>
+						<!-- script-for-menu -->
+						 <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.nav1" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+						</script>
+						<!-- /script-for-menu -->
+			</div>
+			<!-- start search
+				    <div class="search-box">
+					    <div id="sb-search" class="sb-search">
+							<form>
+								<input class="sb-search-input" placeholder="Enter your search item..." type="search" name="search" id="search">
+								<input class="sb-search-submit" type="submit" value="">
+								<span class="sb-icon-search"> </span>
+							</form>
+						</div>
+				    </div>
+					 
+					<script src="js/classie.js"></script>
+					<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+			 //search-scripts -->
+				
+			
+			<div class="clearfix"> </div>
+	</div>
+	<div class="container">
+		<div class="banner-info">
+			<h3><img src="images/header.png"></h3>
+		</div>
+		<div class="buttons">
+			<ul>
+				<li ><a class="hvr-shutter-in-vertical" href="prom.html" data-toggle="modal" data-target="#myModal">Prom</a></li>
+				<li><a class="hvr-shutter-in-vertical" href="404.html" data-toggle="modal" data-target="#myModal1">Formal</a></li>
+				<li><a class="hvr-shutter-in-vertical" href="404.html" data-toggle="modal" data-target="#myModal2">Homecoming</a></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div class="content-bottom">
+		<!--<div class="btm-grids">
+			<div class="col-md-4 btm-grid back-col1 text-center">
+				<div class="posters"><img src="images/example1.jpeg" alt="" /></div>
+					
+
+			</div>
+			<div class="col-md-4 btm-grid btm-wid">
+				<h3>What is PromPosters.com?</h3>
+				<p>PromPosters.com is a service offering proffesionally constructed Prom, Homecoming and Formal posters!</p>
+			</div>
+			<div class="col-md-4 btm-grid back-col2 text-center">
+				<img src="images/example2.jpeg" alt="" />
+			</div>
+			<div class="clearfix"></div>
+		</div> -->
+</div>
+<div class="coupons">
+	<div class="container">
+		<div class="coupons-grids text-center">
+			<div class="col-md-3 coupons-gd">
+				<h3>ORDER IN <span>3 SIMPLE STEPS</span></h3>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<h4><span><img src="images/cell.png" alt=" " /></span></h4>
+				<p>Browse your favorites</p>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<h4><span><img src="images/credit.png" alt=" " /></span></h4>
+				<p>Enter your payment using our easy and safe system</p>
+			</div>
+			<div class="col-md-3 coupons-gd">
+				<h4><span><img src="images/security.png" alt=" " /></span></h4>
+				<p>Make payment and your poster will be delivered</p>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<div class="content-bottom-two">
+		<div class="col-md-6 content-left text-center">
+			<img src="images/example1.jpeg" alt="" />
+		</div>
+		<div class="col-md-6 content-right text-center">
+			<img src="images/example2.jpeg" alt="" />
+		</div>
+		<div class="clearfix"></div>
+		<div class="btm-pos">
+			<h3>What is PromPosters.com?</h3>
+			<p> PromPosters.com is a service offering proffesionally constructed Prom, Homecoming, and Formal Posters!</p>
+		</div>
+</div>
+
+<div class="footer">
+	<div class="container">
+		<h2><a href="index.html">PromPosters.com</a></h2>
+		<p>© 2016 PromPosters.com. All Rights Reserved | Layout by <a href="https://w3layouts.com/" target="_blank">W3Layouts</a> | Design: quinn@knyvez.com</p>
+		<ul>
+			<!--FACES GO HERE -->
+		</ul>
+	</div>
+</div>
+			<!-- signup -
+			<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+							<div class="login-grids">
+								<div class="login">
+									<div class="login-left">
+										<ul>
+											<li><a class="fb" href="#"><i></i>Sign in with Facebook</a></li>
+											<li><a class="goog" href="#"><i></i>Sign in with Google</a></li>
+											<li><a class="linkin" href="#"><i></i>Sign in with Linkedin</a></li>
+										</ul>
+									</div>
+									<div class="login-right">
+										<form>
+											<h3>Create your account </h3>
+											<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+											<input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+											<input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	
+											<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											
+											<input type="submit" value="CREATE ACCOUNT" >
+										</form>
+									</div>
+									<div class="clearfix"></div>								
+								</div>
+								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<//signup -->
+<!-- for bootstrap working -->
+		<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>
