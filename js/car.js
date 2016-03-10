@@ -1,20 +1,23 @@
-(function() {
-  var rotate, timeline;
+#
+Rotate event
+rotate = - >
+  $('.card:first-child')
+  .fadeOut 400, 'swing', - >
 
-  rotate = function() {
-    return $('.card:first-child').fadeOut(400, 'swing', function() {
-      return $('.card:first-child').appendTo('.container').hide();
-    }).fadeIn(400, 'swing');
-  };
+  $('.card:first-child')
+  .appendTo('.container')
+  .hide()
 
-  timeline = setInterval(rotate, 1200);
+.fadeIn 400, 'swing';
 
-  $('body').hover(function() {
-    return clearInterval(timeline);
-  });
+#
+Loops through animation
+timeline = setInterval(rotate, 1200)
 
-  $('.card').click(function() {
-    return rotate();
-  });
+# Clears timeline on hover
+$('body').hover - >
+  clearInterval(timeline)
 
-}).call(this);
+# Triggers rotate event on click
+$('.card').click - >
+  rotate()
