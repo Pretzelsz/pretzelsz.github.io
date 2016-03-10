@@ -1,21 +1,20 @@
-# Rotate event
-rotate = ->
-  $('.card:first-child')
-    .fadeOut 400, 'swing', ->
+(function() {
+  var rotate, timeline;
 
-      $('.card:first-child')
-        .appendTo('.container')
-        .hide()
+  rotate = function() {
+    return $('.card:first-child').fadeOut(400, 'swing', function() {
+      return $('.card:first-child').appendTo('.container').hide();
+    }).fadeIn(400, 'swing');
+  };
 
-    .fadeIn 400, 'swing';
+  timeline = setInterval(rotate, 1200);
 
-# Loops through animation
-timeline = setInterval(rotate, 1200)
+  $('body').hover(function() {
+    return clearInterval(timeline);
+  });
 
-# Clears timeline on hover
-$('body').hover ->
-  clearInterval(timeline)
+  $('.card').click(function() {
+    return rotate();
+  });
 
-# Triggers rotate event on click
-$('.card').click ->
-  rotate()
+}).call(this);
