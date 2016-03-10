@@ -18,7 +18,7 @@
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--//fonts-->
 <!-- js -->
-
+<script type="text/javascript" src="js/car.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- js -->
 								<script>
@@ -104,14 +104,7 @@
 <div class="content-bottom">
 <p> <h4>note here: images may repeat some, working on a fix.</h4>
 </div>
-<script>
-var angle = 0;
-function galleryspin(sign) {
-spinner = document.querySelector("#spinner");
-if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
-spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
-}
-</script>
+
 <div id=carousel>
 <figure id=spinner>
 <img src=//demosthenes.info/assets/images/wanaka-tree.jpg alt="">
@@ -124,6 +117,7 @@ spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-t
 <img src=//demosthenes.info/assets/images/milford-sound.jpg alt="">
 </figure>
 </div>
+
 <span style=float:left class=ss-icon onclick="galleryspin('-')">&lt;</span>
 <span style=float:right class=ss-icon onclick="galleryspin('')">&gt;</span>
 
