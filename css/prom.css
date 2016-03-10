@@ -1,47 +1,96 @@
-  /*------ Mobile Responsive is coming---It's a Work in Progress--------------*/
+$card-width: 350px;
+$card-height: 440px;
 
-  div#carousel {
-    perspective: 1200px;
-    background: transparent;
-    padding-top: 10%;
-    font-size:0;
-    margin-bottom: 3rem;
-    overflow: hidden;
-    padding-bottom: 100px;
+.container {
+  position: relative;
+  width: $card-width;
+  height: $card-height;
+}
+
+
+$total: 10;
+$n: 0;
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #FFFFFF;
+  width: $card-width;
+  height: $card-height;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(#000, 0.2);
+  transform-origin: center;
+  transition: 0.4s cubic-bezier(0.28, 0.55, 0.385, 1.65);
+  cursor: pointer;
+
+  @while $total >= $n {
+    &:nth-child(#{$n + 1}) {
+      z-index: #{$total - $n};
+      top: #{-$n * 15 + "px"};
+      transform-origin: top;
+      transform: scale(#{1 - $n * .1});
+      opacity: #{1 - $n * .1};
+    }
+
+    $n: $n + 1;
   }
-  figure#spinner {
-    transform-style: preserve-3d;
-    height: 300px;
-    transform-origin: 50% 50% -500px;
-    transition: 1s;
+
+  &:first-child {
+    &:hover {
+      box-shadow: 0 0 20px rgba(#000, 0.4);
+      transform: scale(1.05);
+    }
   }
-  figure#spinner img {
-    width: 40%; max-width: 425px;
-    position: absolute; left: 30%;
-    transform-origin: 50% 50% -500px;
-    outline:1px solid transparent;
+
+  &:last-child {
+    opacity: 0;
   }
-  figure#spinner img:nth-child(1) { transform:rotateY(0deg);
+}
+
+
+
+
+
+
+
+// Not Important
+body {
+  background: linear-gradient(#06A3EA, #2095F2);
+  font-family: 'Open Sans';
+}
+
+.title {
+  padding: 60px 0 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #FFF;
+  text-align: center;
+
+  p {
+    padding: 10px 0 0;
+    font-size: 12px;
+    opacity: 0.8;
   }
-  figure#spinner img:nth-child(2) { transform: rotateY(-45deg); }
-  figure#spinner img:nth-child(3) { transform: rotateY(-90deg); }
-  figure#spinner img:nth-child(4) { transform: rotateY(-135deg); }
-  figure#spinner img:nth-child(5){ transform: rotateY(-180deg); }
-  figure#spinner img:nth-child(6){ transform: rotateY(-225deg); }
-  figure#spinner img:nth-child(7){ transform: rotateY(-270deg); }
-  figure#spinner img:nth-child(8){ transform: rotateY(-315deg); }
-  div#carousel ~ span {
-    color: #fff;
-    margin: 5%;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 2rem;
-    transition: 0.6s color;
-    position: relative;
-    margin-top: -6rem;
-    border-bottom: none;
-    line-height: 0; }
-  div#carousel ~ span:hover { color: #888; cursor: pointer; }
+}
+
+.container {
+  margin: 100px auto;
+}
+
+.card {
+  color: rgba(#000, 0.2);
+  font-size: 12px;
+  text-align: center;
+}
+
+span {
+  display: inline-block;
+  background: rgba(#000, .05);
+  border-radius: 4px;
+  margin: 60px 0 0;
+  padding: 8px 10px;
+}
 
 .cover {
   width: 90%;

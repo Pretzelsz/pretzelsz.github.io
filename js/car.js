@@ -1,7 +1,21 @@
+# Rotate event
+rotate = ->
+  $('.card:first-child')
+    .fadeOut 400, 'swing', ->
 
-var angle = 0;
-function galleryspin(sign) {
-spinner = document.querySelector("#spinner");
-if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
-spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
-}
+      $('.card:first-child')
+        .appendTo('.container')
+        .hide()
+
+    .fadeIn 400, 'swing';
+
+# Loops through animation
+timeline = setInterval(rotate, 1200)
+
+# Clears timeline on hover
+$('body').hover ->
+  clearInterval(timeline)
+
+# Triggers rotate event on click
+$('.card').click ->
+  rotate()
