@@ -2,11 +2,12 @@
 
   div#carousel {
     perspective: 1200px;
-    background: #100000;
+    background: transparent;
     padding-top: 10%;
     font-size:0;
     margin-bottom: 3rem;
     overflow: hidden;
+    padding-bottom: 100px;
   }
   figure#spinner {
     transform-style: preserve-3d;
