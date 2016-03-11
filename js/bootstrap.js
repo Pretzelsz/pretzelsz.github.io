@@ -1,10 +1,3 @@
-var angle = 0;
-function galleryspin(sign) {
-spinner = document.querySelector("#spinner");
-if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
-spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
-}
-
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -502,7 +495,7 @@ if (typeof jQuery === 'undefined') {
   // CAROUSEL DATA-API
   // =================
 
-
+ 
 /* ========================================================================
  * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
@@ -2292,3 +2285,5 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+
