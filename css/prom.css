@@ -1,30 +1,1002 @@
-.logo {
-  margin-bottom: 40px;
-  letter-spacing: 0.7em;
+
+
+  /*------ Mobile Responsive is coming---It's a Work in Progress--------------*/
+
+
+>>>>>>> parent of 9d55fb5... Carousell test
+
+.cover {
+  width: 90%;
+  display: block;
+  margin: 10px auto;
+  max-width: 900px;
+  min-width: 320px;
 }
 
-.productgalleries {
+.single_deal {
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-.slider {
-  display: inline-block;
-  overflow: hidden;
-}
+.single_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/example1.jpeg');
+  background-size:contain;
 
-a:before {
-  content: attr(rel);
-  position: absolute;
-  top: 20px;
-}
-
-a {
   position: relative;
-  top: 0;
-  -webkit-transition-duration: .25s;
+
 }
 
-a:hover {
-  top: -20px;
-  -webkit-transition-duration: .25s;
+.single_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
 }
+
+.single_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.single_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.single_deal:hover .button1 {
+  opacity: 1;
+}
+
+.single_deal:hover .button2 {
+  opacity: 1;
+}
+
+.single_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.single_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.single_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.single_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.single_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.single_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.single_deal .hover .call_to_action .button2,
+.single_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+
+.product {
+  width: 100%
+}
+
+.split_angle {
+  height: 450px;
+}
+
+.split_angle .content {
+  background: #96dd6f;
+  width: 40%;
+  padding-top: .3em;
+  padding-left: 2em;
+  padding-right: .3em;
+  padding-bottom: 2em;
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.content h1 {
+  font-weight: 500;
+  color: #747474;
+  text-align: center;
+}
+
+.content p {
+  color: #FFF;
+  line-height: 1.3;
+}
+
+
+
+.d_deal {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.d_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/example2.jpeg');
+  background-size:contain;
+  position: relative;
+}
+
+.d_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
+}
+
+.d_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.d_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.d_deal:hover .button1 {
+  opacity: 1;
+}
+
+.d_deal:hover .button2 {
+  opacity: 1;
+}
+
+.d_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.d_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.d_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.d_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.d_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.d_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.d_deal .hover .call_to_action .button2,
+.d_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+
+.asingle_deal {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.asingle_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/taco.jpg');
+  background-size:contain;
+  position: relative;
+}
+
+.asingle_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
+}
+
+.asingle_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.asingle_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.asingle_deal:hover .button1 {
+  opacity: 1;
+}
+
+.asingle_deal:hover .button2 {
+  opacity: 1;
+}
+
+.asingle_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.asingle_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.asingle_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.asingle_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.asingle_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.asingle_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.asingle_deal .hover .call_to_action .button2,
+.asingle_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+
+.bsingle_deal {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.bsingle_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/free.jpg');
+  background-size:contain;
+  position: relative;
+}
+
+.bsingle_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
+}
+
+.bsingle_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.bsingle_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.bsingle_deal:hover .button1 {
+  opacity: 1;
+}
+
+.bsingle_deal:hover .button2 {
+  opacity: 1;
+}
+
+.bsingle_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.bsingle_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.bsingle_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.bsingle_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.bsingle_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.bsingle_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.bsingle_deal .hover .call_to_action .button2,
+.bsingle_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+/**/
+.absingle_deal {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.absingle_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/score.jpg');
+  background-size:contain;
+  position: relative;
+}
+
+.absingle_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
+}
+
+.absingle_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.absingle_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.absingle_deal:hover .button1 {
+  opacity: 1;
+}
+
+.absingle_deal:hover .button2 {
+  opacity: 1;
+}
+
+.absingle_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.absingle_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.absingle_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.absingle_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.absingle_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.absingle_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.absingle_deal .hover .call_to_action .button2,
+.absingle_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+/**/
+.aabsingle_deal {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.aabsingle_deal .content {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  height: 600px;
+  background: url('../images/mus.jpg');
+  background-size:contain;
+  position: relative;
+}
+
+.aabsingle_deal .title {
+  background: #fdad44;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+  margin-top: -20px;
+}
+
+.aabsingle_deal .title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 3em solid #5eba2c;
+  z-index: -1
+}
+
+.aabsingle_deal .title:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: -80px;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 3em solid #5eba2c;
+  z-index: -1;
+}
+
+.aabsingle_deal:hover .button1 {
+  opacity: 1;
+}
+
+.aabsingle_deal:hover .button2 {
+  opacity: 1;
+}
+
+.aabsingle_deal .title .name {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-left: 2em;
+  display: inline-block;
+}
+
+.aabsingle_deal .title .price {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.7em;
+  margin-right: 2em;
+  float: right;
+  display: inline-block;
+}
+
+.aabsingle_deal .hover {
+  width: 100%;
+  height: 2%;
+  transition: all 1s ease;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.aabsingle_deal:hover .hover {
+  height: 100%;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.aabsingle_deal .hover .description {
+  width: 50%;
+  float: left;
+}
+
+.aabsingle_deal .hover .call_to_action {
+  width: 50%;
+  float: left;
+  padding-top: 5%;
+}
+
+.aabsingle_deal .hover .call_to_action .button2,
+.aabsingle_deal .hover .call_to_action .button1 {
+  display: block;
+  float: none;
+  margin: 20px auto;
+  width: 30%;
+  text-align: center;
+}
+
+@media screen and (max-width:600px) {
+
+.aabsingle_deal {
+    margin-bottom: 120px;
+  }
+  .aabsingle_deal .title .name {
+    margin-left: .5em;
+  }
+  .aabsingle_deal .title .price {
+    margin-right: .5em;
+  }
+  .aabsingle_deal .hover,
+  .aabsingle_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .aabsingle_deal .hover .description {
+    display: none;
+  }
+  .aabsingle_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .aabsingle_deal .hover .call_to_action .button2,
+  .aabsingle_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+}
+
+
+/**/
+
+
+ .absingle_deal {
+    margin-bottom: 120px;
+  }
+  .absingle_deal .title .name {
+    margin-left: .5em;
+  }
+  .absingle_deal .title .price {
+    margin-right: .5em;
+  }
+  .absingle_deal .hover,
+  .absingle_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .absingle_deal .hover .description {
+    display: none;
+  }
+  .absingle_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .absingle_deal .hover .call_to_action .button2,
+  .absingle_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+>>>>>>> parent of fce209b... stage for a new store
+}
+/**/
+ .asingle_deal {
+    margin-bottom: 120px;
+  }
+  .asingle_deal .title .name {
+    margin-left: .5em;
+  }
+  .asingle_deal .title .price {
+    margin-right: .5em;
+  }
+  .asingle_deal .hover,
+  .asingle_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .asingle_deal .hover .description {
+    display: none;
+  }
+  .asingle_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .asingle_deal .hover .call_to_action .button2,
+  .asingle_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+}
+  .d_deal {
+    margin-bottom: 120px;
+  }
+
+  .d_deal .title .name {
+    margin-left: .5em;
+  }
+  .d_deal .title .price {
+    margin-right: .5em;
+  }
+  .d_deal .hover,
+  .d_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .d_deal .hover .description {
+    display: none;
+  }
+  .d_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .d_deal .hover .call_to_action .button2,
+  .d_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+  }
+  .bsingle_deal {
+    margin-bottom: 120px;
+  }
+  .bsingle_deal .title .name {
+    margin-left: .5em;
+  }
+  .bsingle_deal .title .price {
+    margin-right: .5em;
+  }
+  .bsingle_deal .hover,
+  .bsingle_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .bsingle_deal .hover .description {
+    display: none;
+  }
+  .bsingle_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .bsingle_deal .hover .call_to_action .button2,
+  .bsingle_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+  }
+/**/
+  .single_deal {
+    margin-bottom: 120px;
+  }
+  .single_deal .title .name {
+    margin-left: .5em;
+  }
+  .single_deal .title .price {
+    margin-right: .5em;
+  }
+  .single_deal .hover,
+  .single_deal:hover .hover {
+    width: 100%;
+    height: 90px;
+    display: block;
+    float: left;
+    transition: all 1s ease;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    bottom: 0;
+    opacity: 1;
+  }
+  .single_deal .hover .description {
+    display: none;
+  }
+  .single_deal .hover .call_to_action {
+    width: 100%;
+  }
+  .single_deal .hover .call_to_action .button2,
+  .single_deal .hover .call_to_action .button1 {
+    display: inline-block;
+    float: left;
+    opacity: 1;
+    margin: .5em;
+    width: 38%;
+    text-align: center;
+  }
+  .call_to_action .price {
+    margin-left: 1em;
+    float: left;
+  }
