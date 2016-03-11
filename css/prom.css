@@ -1,0 +1,31 @@
+.logo {
+  margin-bottom: 40px;
+  letter-spacing: 0.7em;
+}
+
+.productgalleries{
+	margin-top: 20px;
+
+}
+
+.slider{
+  display:inline-block;
+  overflow:hidden;
+}
+
+a:before {
+ content:attr(rel);
+ position:absolute;
+ top:20px;
+}
+
+a{
+    position:relative;
+    top:0;
+     -webkit-transition-duration: .25s;
+}
+
+a:hover {
+   top:-20px;
+   -webkit-transition-duration: .25s;
+}
