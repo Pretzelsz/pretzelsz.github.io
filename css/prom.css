@@ -1,1000 +1,184 @@
-
-  /*------ Mobile Responsive is coming---It's a Work in Progress--------------*/
-
-
->>>>>>> parent of 9d55fb5... Carousell test
-
-.cover {
-  width: 90%;
-  display: block;
-  margin: 10px auto;
-  max-width: 900px;
-  min-width: 320px;
-}
-
-.single_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.single_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/example1.jpeg');
-  background-size:contain;
-
-  position: relative;
-
-}
-
-.single_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.single_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.single_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.single_deal:hover .button1 {
-  opacity: 1;
-}
-
-.single_deal:hover .button2 {
-  opacity: 1;
-}
-
-.single_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.single_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.single_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.single_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.single_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.single_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.single_deal .hover .call_to_action .button2,
-.single_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-
-.product {
-  width: 100%
-}
-
-.split_angle {
-  height: 450px;
-}
-
-.split_angle .content {
-  background: #96dd6f;
-  width: 40%;
-  padding-top: .3em;
-  padding-left: 2em;
-  padding-right: .3em;
-  padding-bottom: 2em;
-  float: left;
-  height: 450px;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.content h1 {
-  font-weight: 500;
-  color: #747474;
-  text-align: center;
-}
-
-.content p {
-  color: #FFF;
-  line-height: 1.3;
-}
-
-
-
-.d_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.d_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/example2.jpeg');
-  background-size:contain;
-  position: relative;
-}
-
-.d_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.d_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.d_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.d_deal:hover .button1 {
-  opacity: 1;
-}
-
-.d_deal:hover .button2 {
-  opacity: 1;
-}
-
-.d_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.d_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.d_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.d_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.d_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.d_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.d_deal .hover .call_to_action .button2,
-.d_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-
-.asingle_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.asingle_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/taco.jpg');
-  background-size:contain;
-  position: relative;
-}
-
-.asingle_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.asingle_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.asingle_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.asingle_deal:hover .button1 {
-  opacity: 1;
-}
-
-.asingle_deal:hover .button2 {
-  opacity: 1;
-}
-
-.asingle_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.asingle_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.asingle_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.asingle_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.asingle_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.asingle_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.asingle_deal .hover .call_to_action .button2,
-.asingle_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-
-.bsingle_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.bsingle_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/free.jpg');
-  background-size:contain;
-  position: relative;
-}
-
-.bsingle_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.bsingle_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.bsingle_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.bsingle_deal:hover .button1 {
-  opacity: 1;
-}
-
-.bsingle_deal:hover .button2 {
-  opacity: 1;
-}
-
-.bsingle_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.bsingle_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.bsingle_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.bsingle_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.bsingle_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.bsingle_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.bsingle_deal .hover .call_to_action .button2,
-.bsingle_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-/**/
-.absingle_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.absingle_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/score.jpg');
-  background-size:contain;
-  position: relative;
-}
-
-.absingle_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.absingle_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.absingle_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.absingle_deal:hover .button1 {
-  opacity: 1;
-}
-
-.absingle_deal:hover .button2 {
-  opacity: 1;
-}
-
-.absingle_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.absingle_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.absingle_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.absingle_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.absingle_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.absingle_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.absingle_deal .hover .call_to_action .button2,
-.absingle_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-/**/
-.aabsingle_deal {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.aabsingle_deal .content {
-  width: 95%;
-  display: block;
-  margin: 0 auto;
-  height: 600px;
-  background: url('../images/mus.jpg');
-  background-size:contain;
-  position: relative;
-}
-
-.aabsingle_deal .title {
-  background: #fdad44;
-  width: 100%;
-  height: 60px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  position: relative;
-  margin-top: -20px;
-}
-
-.aabsingle_deal .title:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-right: 3em solid #5eba2c;
-  z-index: -1
-}
-
-.aabsingle_deal .title:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: -80px;
-  border-top: 20px solid transparent;
-  border-bottom: 0px solid transparent;
-  border-left: 3em solid #5eba2c;
-  z-index: -1;
-}
-
-.aabsingle_deal:hover .button1 {
-  opacity: 1;
-}
-
-.aabsingle_deal:hover .button2 {
-  opacity: 1;
-}
-
-.aabsingle_deal .title .name {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-left: 2em;
-  display: inline-block;
-}
-
-.aabsingle_deal .title .price {
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.7em;
-  margin-right: 2em;
-  float: right;
-  display: inline-block;
-}
-
-.aabsingle_deal .hover {
-  width: 100%;
-  height: 2%;
-  transition: all 1s ease;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.aabsingle_deal:hover .hover {
-  height: 100%;
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-}
-
-.aabsingle_deal .hover .description {
-  width: 50%;
-  float: left;
-}
-
-.aabsingle_deal .hover .call_to_action {
-  width: 50%;
-  float: left;
-  padding-top: 5%;
-}
-
-.aabsingle_deal .hover .call_to_action .button2,
-.aabsingle_deal .hover .call_to_action .button1 {
-  display: block;
-  float: none;
-  margin: 20px auto;
-  width: 30%;
-  text-align: center;
-}
-
-@media screen and (max-width:600px) {
-
-.aabsingle_deal {
-    margin-bottom: 120px;
-  }
-  .aabsingle_deal .title .name {
-    margin-left: .5em;
-  }
-  .aabsingle_deal .title .price {
-    margin-right: .5em;
-  }
-  .aabsingle_deal .hover,
-  .aabsingle_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    bottom: 0;
-    opacity: 1;
-  }
-  .aabsingle_deal .hover .description {
-    display: none;
-  }
-  .aabsingle_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .aabsingle_deal .hover .call_to_action .button2,
-  .aabsingle_deal .hover .call_to_action .button1 {
+@import "compass/css3";
+
+/*=======================================================
+    A stylesheet by:
+    Leon Taveras (LeonimuZ) || http://be.net/lnz
+
+    Includes styles from:
+    YUI Pure, H5bp, Foundation, CSS-Tricks.com
+    & SachaGreif.com
+=======================================================*/
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
     display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
+    text-decoration: inherit;
+    width: 1em;
     text-align: center;
 }
 
-
-/**/
-
-
- .absingle_deal {
-    margin-bottom: 120px;
-  }
-  .absingle_deal .title .name {
-    margin-left: .5em;
-  }
-  .absingle_deal .title .price {
-    margin-right: .5em;
-  }
-  .absingle_deal .hover,
-  .absingle_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
+/*===================================
+    Global styles & defaults.
+    from H5BP, Global reset idea from CSS-tricks
+===================================*/
+*, *:before, *:after {
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    bottom: 0;
-    opacity: 1;
-  }
-  .absingle_deal .hover .description {
-    display: none;
-  }
-  .absingle_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .absingle_deal .hover .call_to_action .button2,
-  .absingle_deal .hover .call_to_action .button1 {
-    display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
-/**/
- .asingle_deal {
-    margin-bottom: 120px;
-  }
-  .asingle_deal .title .name {
-    margin-left: .5em;
-  }
-  .asingle_deal .title .price {
-    margin-right: .5em;
-  }
-  .asingle_deal .hover,
-  .asingle_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    bottom: 0;
-    opacity: 1;
-  }
-  .asingle_deal .hover .description {
-    display: none;
-  }
-  .asingle_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .asingle_deal .hover .call_to_action .button2,
-  .asingle_deal .hover .call_to_action .button1 {
-    display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
-    text-align: center;
-}
-  .d_deal {
-    margin-bottom: 120px;
-  }
 
-  .d_deal .title .name {
-    margin-left: .5em;
-  }
-  .d_deal .title .price {
-    margin-right: .5em;
-  }
-  .d_deal .hover,
-  .d_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/*===================================
+    Default colors.
+    Colors from Android (except for black & white)
+===================================*/
+$black: #000000;
+$white: #ffffff;
+$s-black: #111111;
+$s-white: #f0f0f0;
+$blue: #33B5E5;
+$magenta: #AA66CC;
+$green: #99CC00;
+$orange: #FFBB33;
+$red: #FF4444;
+
+/*===================================
+    Fix floating elements.
+===================================*/
+.clearfix:before, .clearfix:after { content: " "; display: table }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+/*===================================
+    Fix position of pseudo ::before and ::after.
+    Works only for static elements.
+===================================*/
+@mixin pseudo($display:block) {
+    content: " ";
     position: absolute;
+    top: 0;
     left: 0;
-    top: 110%;
     bottom: 0;
-    opacity: 1;
-  }
-  .d_deal .hover .description {
-    display: none;
-  }
-  .d_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .d_deal .hover .call_to_action .button2,
-  .d_deal .hover .call_to_action .button1 {
-    display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
-    text-align: center;
-  }
-  .bsingle_deal {
-    margin-bottom: 120px;
-  }
-  .bsingle_deal .title .name {
-    margin-left: .5em;
-  }
-  .bsingle_deal .title .price {
-    margin-right: .5em;
-  }
-  .bsingle_deal .hover,
-  .bsingle_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    bottom: 0;
-    opacity: 1;
-  }
-  .bsingle_deal .hover .description {
-    display: none;
-  }
-  .bsingle_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .bsingle_deal .hover .call_to_action .button2,
-  .bsingle_deal .hover .call_to_action .button1 {
-    display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
-    text-align: center;
-  }
-/**/
-  .single_deal {
-    margin-bottom: 120px;
-  }
-  .single_deal .title .name {
-    margin-left: .5em;
-  }
-  .single_deal .title .price {
-    margin-right: .5em;
-  }
-  .single_deal .hover,
-  .single_deal:hover .hover {
-    width: 100%;
-    height: 90px;
-    display: block;
-    float: left;
-    transition: all 1s ease;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.5);
-    padding: .5em;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    bottom: 0;
-    opacity: 1;
-  }
-  .single_deal .hover .description {
-    display: none;
-  }
-  .single_deal .hover .call_to_action {
-    width: 100%;
-  }
-  .single_deal .hover .call_to_action .button2,
-  .single_deal .hover .call_to_action .button1 {
-    display: inline-block;
-    float: left;
-    opacity: 1;
-    margin: .5em;
-    width: 38%;
-    text-align: center;
-  }
-  .call_to_action .price {
-    margin-left: 1em;
-    float: left;
-  }
+    right: 0;
+    display: $display;
+}
+
+/*===================================
+    Black & White
+    http://sachagreif.com/useful-sass-mixins/
+    color(opacity)
+===================================*/
+@function black($opacity){
+    @return rgba(0,0,0,$opacity);
+}
+@function white($opacity){
+    @return rgba(255,255,255,$opacity);
+}
+
+html, body { height:100%; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+    background-color: $blue;
+    padding-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: ($black + 130);
+}
+
+.item {
+    margin: 0 auto;
+    width: 300px;
+    background-color: $white;
+    box-shadow: 0 2px 10px -3px $s-black;
+    @extend .clearfix;
+    .art {
+        overflow: hidden;
+        height: 225px;
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+        }
+        &::after {
+            @include pseudo;
+            box-shadow: inset 0 1px 0 0px white(.6);
+        }
+    }
+    .details {
+        @extend .clearfix;
+        .info {
+            float: left;
+            padding: 15px;
+            height: 100px;
+            width: 200px;
+            .name {
+                display: block;
+                font-size: 17px;
+            }
+            .price {
+                display: block;
+                font-size: 14px;
+            }
+            .category {
+                display: block;
+                font-size: 11px;
+            }
+        }
+        .actions {
+            float: right;
+            margin: 0;
+            padding: 0;
+            width: 100px;
+            text-align: center;
+            li {
+                float: left;
+                list-style: none;
+                width: 50px;
+                font-size: 20px;
+                text-shadow: 1px 1px 1px black(.5);
+                &.reviews { background-color: #192A31; }
+                &.favorite { background-color: $red; }
+                &.share { background-color: #3A7E95; }
+                &.view { background-color: $blue; }
+                a {
+                    display: block;
+                    padding: 11px;
+                    color: $white;
+                    &:hover {
+                        background-color: black(.1);
+                    }
+                }
+            }
+        }
+    }
+}
