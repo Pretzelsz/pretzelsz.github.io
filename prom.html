@@ -1,161 +1,166 @@
 
 <!DOCTYPE html>
-<html ng-app="store">
+<html>
 <head>
+<title>Custom Prom Posters</title>
 
-
+<link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/prom.css" rel="stylesheet">
- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!--fonts-->
+<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<!-- js -->
 <script type="text/javascript" src="js/angularstore.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- js -->
+								<script>
+									$(document).ready(function () {
+										//Initialize tooltips
+										$('.nav-tabs > li a[title]').tooltip();
 
-<script>
-    	function changeImage(elm) {
-			var obj = elm;
-			if (obj.getAttribute("class") == "thumb") {
-				obj.removeAttribute("class","full");
-				obj.setAttribute("class","full");
-				setTimeout(function(){
-					obj.nextElementSibling.style.display = "block";
-				}, 300)
+										//Wizard
+										$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
-			} else {
-				obj.removeAttribute("class","thumb");
-				obj.setAttribute("class","thumb");
-				obj.nextElementSibling.style.display = "none";
-			}
-		}
+											var $target = $(e.target);
 
-		function closeImage(elm) {
-			var obj = elm;
-			if (obj.previousElementSibling.getAttribute("class") == "full") {
-				obj.previousElementSibling.removeAttribute("class","thumb");
-				obj.previousElementSibling.setAttribute("class","thumb");
-				obj.style.display = "none";
-			}
-		}
-</script>
+											if ($target.parent().hasClass('disabled')) {
+												return false;
+											}
+										});
 
+										$(".next-step").click(function (e) {
+
+											var $active = $('.wizard .nav-tabs li.active');
+											$active.next().removeClass('disabled');
+											nextTab($active);
+
+										});
+										$(".prev-step").click(function (e) {
+
+											var $active = $('.wizard .nav-tabs li.active');
+											prevTab($active);
+
+										});
+									});
+
+									function nextTab(elem) {
+										$(elem).next().find('a[data-toggle="tab"]').click();
+									}
+									function prevTab(elem) {
+										$(elem).prev().find('a[data-toggle="tab"]').click();
+									}
+								</script>
 </head>
+<body>
+
+<div class="banner">
+	<div class="header">
+			<div class="logo">
+
+			   <h1><a href="index.html"><i><img src="" alt=" " /></i>PromPosters.com</a></h1>
+			</div>
+			<div class="top-nav">
+				<span class="menu"><img src="images/menu.png" alt=" " /></span>
+				<ul class="nav1">
+					<li><a href="index.html" data-toggle="modal" data-target="#myModal">Home</a></li>
+					<li><a href="prom.html" data-toggle="modal" data-target="#myModal2">Prom</a></li>
+					<li><a href="404.html" data-toggle="modal" data-target="#myModal1">Formal</a></li>
+					<li><a href="404.html" data-toggle="modal" data-target="#myModal3">Homecoming</a></li>
+					<li><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="business" value="saturday248@gmail.com">
+<input type="hidden" name="display" value="1">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</li>
+				</ul>
+						<!-- script-for-menu -->
+						 <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.nav1" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+						</script>
+						<!-- /script-for-menu -->
+			</div>
+			<div class="clearfix"> </div>
+	</div>
+	<div class="container">
+		<div class="banner-info">
+			<h3><img src="images/header.png"></h3>
+		</div>
+	</div>
+</div>
+<div class="content-bottom">
+<p> <h4>note here: images may repeat some, working on a fix.</h4>
+</div>
+
+<html ng-app="store">
+
 <body ng-controller="StoreController as store">
 
-  <div class="wrapper">
+<div class="wrapper">
 
     <div class="centered-wrapper">
 
-      <div class="general-desc-wrap">
+        <div class="general-desc-wrap">
 
-        <h1>Shopping Cart - Angular JS</h1>
-        <p>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature
-          needs. <br> Read on to find out how.</p>
+            <h1>Shopping Cart - Angular JS</h1>
+            <p>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. <br> Read on to find out how.</p>
 
-      </div>
-
-<script>
- var app = angular.module('store', []);
-
- app.controller("StoreController", function(){
-   this.products = gems;
- });
-
- var imgPath = "http://pre05.deviantart.net/e7cc/th/pre/f/2012/199/0/8/";
-
- var gems = [
-   {
-     name : "Product 1",
-     price: "2.50",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : false,
-     soldOut : true,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   },
-   {
-     name : "Product 2",
-     price: "1.50",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : true,
-     soldOut : false,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   },
-   {
-     name : "Product 3",
-     price: "1.25",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : true,
-     soldOut : false,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   },
-   {
-     name : "Product 4",
-     price: "1.75",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : true,
-     soldOut : false,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   },
-   {
-     name : "Product 5",
-     price: "3.50",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : false,
-     soldOut : true,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   },
-   {
-
-     name : "Product 6",
-     price: "2.75",
-     description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
-     canPurchase : true,
-     soldOut : false,
-     image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
-   }
- ]
-})();
-</script>
-
-
-      <!--Item Wrap: begins-->
-      <div class="item-wrap">
-
-        <!--Item: begins-->
-        <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
-          <h2>{{product.name | uppercase}}</h2>
-          <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
-          <span class="close-icon" onclick="closeImage(this);"></span>
-          <p>{{product.description | limitTo : 95}}</p>
-          <h3>{{product.price | currency}}</h3>
-          <button class="button sold-out" disabled ng-show="product.soldOut">Sold Out</button>
-          <button class="button" ng-show="product.canPurchase">Add to Cart</button>
-
-          <div class="panel" ng-show="tab === 1">
-            <h2>Description</h2>
-            <p>{{product.description}}</p>
-            <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
-          </div>
-
-          <div class="panel" ng-show="tab === 2">
-            <h2>Reviews</h2>
-            <blockquote>None Yet</blockquote>
-            <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
-          </div>
-
-          <ul class="nav nav-pills">
-            <li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
-            <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Reviews</a></li>
-          </ul>
         </div>
-        <!--Item: ends-->
 
-      </div>
-      <!--Item Wrap: ends-->
+        <!--Item Wrap: begins-->
+        <div class="item-wrap">
+
+            <!--Item: begins-->
+            <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
+                <h2>{{product.name | uppercase}}</h2>
+                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
+                <span class="close-icon" onclick="closeImage(this);"></span>
+                <p>{{product.description | limitTo : 95}}</p>
+                <h3>{{product.price | currency}}</h3>
+                <button class="button sold-out" disabled ng-show="product.soldOut">Sold Out</button>
+                <button class="button" ng-show="product.canPurchase">Add to Cart</button>
+
+                <div class="panel" ng-show="tab === 1">
+                	<h2>Description</h2>
+                    <p>{{product.description}}</p>
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+                </div>
+
+                <div class="panel" ng-show="tab === 2">
+                	<h2>Reviews</h2>
+                    <blockquote>None Yet</blockquote>
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+                </div>
+
+                <ul class="nav nav-pills">
+                	<li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
+                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Reviews</a></li>
+                </ul>
+            </div>
+            <!--Item: ends-->
+
+        </div>
+        <!--Item Wrap: ends-->
 
     </div>
 
-  </div>
+</div>
 
 </body>
-
 </html>
 
 

@@ -1,4 +1,5 @@
-angular.module('store', []);
+(function(){
+
  var app = angular.module('store', []);
 
  app.controller("StoreController", function(){
