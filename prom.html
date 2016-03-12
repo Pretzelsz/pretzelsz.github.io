@@ -19,6 +19,7 @@
 <!--//fonts-->
 <!-- js -->
 <script type="text/javascript" src="js/car.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- js -->
 								<script>
@@ -104,7 +105,69 @@
 <div class="content-bottom">
 <p> <h4>note here: images may repeat some, working on a fix.</h4>
 </div>
-  <div class="cover">
+
+<html ng-app="store">
+
+<body ng-controller="StoreController as store">
+
+<div class="wrapper">
+
+    <div class="centered-wrapper">
+
+        <div class="general-desc-wrap">
+
+            <h1>Shopping Cart - Angular JS</h1>
+            <p>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. <br> Read on to find out how.</p>
+
+        </div>
+
+        <!--Item Wrap: begins-->
+        <div class="item-wrap">
+
+            <!--Item: begins-->
+            <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
+                <h2>{{product.name | uppercase}}</h2>
+                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
+                <span class="close-icon" onclick="closeImage(this);"></span>
+                <p>{{product.description | limitTo : 95}}</p>
+                <h3>{{product.price | currency}}</h3>
+                <button class="button sold-out" disabled ng-show="product.soldOut">Sold Out</button>
+                <button class="button" ng-show="product.canPurchase">Add to Cart</button>
+
+                <div class="panel" ng-show="tab === 1">
+                	<h2>Description</h2>
+                    <p>{{product.description}}</p>
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+                </div>
+
+                <div class="panel" ng-show="tab === 2">
+                	<h2>Reviews</h2>
+                    <blockquote>None Yet</blockquote>
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+                </div>
+
+                <ul class="nav nav-pills">
+                	<li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
+                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Reviews</a></li>
+                </ul>
+            </div>
+            <!--Item: ends-->
+
+        </div>
+        <!--Item Wrap: ends-->
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+<!--
+	<div class="cover">
     <div class="single_deal">
       <div class="content">
         <div class="hover">
