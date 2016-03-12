@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html ng-app="store">
 <head>
 <title>Custom Prom Posters</title>
 
@@ -22,45 +22,37 @@
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- js -->
-								<script>
-									$(document).ready(function () {
-										//Initialize tooltips
-										$('.nav-tabs > li a[title]').tooltip();
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-										//Wizard
-										$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+<script>
+    	function changeImage(elm) {
+			var obj = elm;
+			if (obj.getAttribute("class") == "thumb") {
+				obj.removeAttribute("class","full");
+				obj.setAttribute("class","full");
+				setTimeout(function(){
+					obj.nextElementSibling.style.display = "block";
+				}, 300)
 
-											var $target = $(e.target);
+			} else {
+				obj.removeAttribute("class","thumb");
+				obj.setAttribute("class","thumb");
+				obj.nextElementSibling.style.display = "none";
+			}
+		}
 
-											if ($target.parent().hasClass('disabled')) {
-												return false;
-											}
-										});
+		function closeImage(elm) {
+			var obj = elm;
+			if (obj.previousElementSibling.getAttribute("class") == "full") {
+				obj.previousElementSibling.removeAttribute("class","thumb");
+				obj.previousElementSibling.setAttribute("class","thumb");
+				obj.style.display = "none";
+			}
+		}
+</script>
 
-										$(".next-step").click(function (e) {
-
-											var $active = $('.wizard .nav-tabs li.active');
-											$active.next().removeClass('disabled');
-											nextTab($active);
-
-										});
-										$(".prev-step").click(function (e) {
-
-											var $active = $('.wizard .nav-tabs li.active');
-											prevTab($active);
-
-										});
-									});
-
-									function nextTab(elem) {
-										$(elem).next().find('a[data-toggle="tab"]').click();
-									}
-									function prevTab(elem) {
-										$(elem).prev().find('a[data-toggle="tab"]').click();
-									}
-								</script>
 </head>
-<body>
+<body ng-controller="StoreController as store">
 
 <div class="banner">
 	<div class="header">
@@ -103,12 +95,69 @@
 	</div>
 </div>
 <div class="content-bottom">
-<p> <h4>note here: images may repeat some, working on a fix.</h4>
+
 </div>
 
-<html ng-app="store">
+<script>
+// Angular JS Test App
 
-<body ng-controller="StoreController as store">
+(function() {
+
+var app = angular.module('store', []);
+
+app.controller("StoreController", function() {
+	this.products = gems;
+});
+
+var imgPath = "images";
+
+var gems = [{
+	name: "Ransom Note",
+	price: "12.99",
+	description: "Hold a heart hostage -- Well, maybe, that's not such a good way to put it. Either way this high quality poster will be delivered without a water mark within a few days depending how many orders there are.",
+	canPurchase: true,
+	soldOut: false,
+	image: imgPath + "/example1.jpeg"
+}, {
+	name: "Taco Bout' Prom",
+	price: "12.99",
+	description: "More puns! That father thing I made up, but speaking from personal experience women totally dig puns.",
+	canPurchase: true,
+	soldOut: false,
+	image: imgPath + "/taco.jpg"
+}, {
+	name: "SCORE!",
+	price: "12.99",
+	description: "On a sports team that has scores? Then bro, this is the poster for you. Perfect for the speacially sporty someone.",
+	canPurchase: true,
+	soldOut: false,
+	image: imgPath + "/score.jpg"
+}, {
+	name: "Mustache",
+	price: "12.99",
+	description: "Like my father says 'Son, women love puns. Especially puns with mustaches'. And if you trust my father as much as I do you should totally buy this poster.",
+	canPurchase: true,
+	soldOut: false,
+	image: imgPath + "/mus.jpg"
+}, {
+	name: "Bananas",
+	price: "12.99",
+	description: "Animal fan? Banana fan? Maybe you are just looking for a playful way to ask her out. Well look no further than this!",
+	canPurchase: false,
+	soldOut: true,
+	image: imgPath + "/example2.jpeg"
+}, {
+
+	name: "Freestyle",
+	price: "12.99",
+	description: "Up and coming grafiti artist? Maybe you tryna build that street cred. Maybe you tryna appeal to that one girl with that cool hair but she -- Nevermind. ",
+	canPurchase: true,
+	soldOut: false,
+	image: imgPath + "/free.jpg"
+}]
+})();
+</script>
+
 
 <div class="wrapper">
 
@@ -116,8 +165,7 @@
 
         <div class="general-desc-wrap">
 
-            <h1>Shopping Cart - Angular JS</h1>
-            <p>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. <br> Read on to find out how.</p>
+            <h1>images are real messed up, working on fix</h1>
 
         </div>
 
@@ -131,8 +179,6 @@
                 <span class="close-icon" onclick="closeImage(this);"></span>
                 <p>{{product.description | limitTo : 95}}</p>
                 <h3>{{product.price | currency}}</h3>
-                <button class="button sold-out" disabled ng-show="product.soldOut">Sold Out</button>
-                <button class="button" ng-show="product.canPurchase">Add to Cart</button>
 
                 <div class="panel" ng-show="tab === 1">
                 	<h2>Description</h2>
@@ -141,14 +187,53 @@
                 </div>
 
                 <div class="panel" ng-show="tab === 2">
-                	<h2>Reviews</h2>
-                    <blockquote>None Yet</blockquote>
+                	<h2>Buy now!</h2>
+									<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="business" value="saturday248@gmail.com">
+<input type="hidden" name="lc" value="BM">
+<input type="hidden" name="item_name" value="Prom Poster">
+<input type="hidden" name="item_number" value="prom_poster">
+<input type="hidden" name="button_subtype" value="products">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="add" value="1">
+<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
+<table>
+<tr><td><input type="hidden" name="on0" value="Type (Temp Fix)">Poster Type (Temp fix until I get our own cart.)</td></tr><tr><td><select name="os0">
+	<option value="Meet me at Prom">Meet me at Prom $12.99 USD</option>
+	<option value="Let's Taco Bout' Prom">Let's Taco Bout' Prom $12.99 USD</option>
+	<option value="Let's Go Bananas at Prom!">Let's Go Bananas at Prom! $12.99 USD</option>
+	<option value="Let's Freestyle at Prom">Let's Freestyle at Prom $12.99 USD</option>
+	<option value="It Would be a Huge SCORE!">It Would be a Huge SCORE! $12.99 USD</option>
+	<option value="I mustache you a Question">I mustache you a Question $12.99 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="option_select0" value="Meet me at Prom">
+<input type="hidden" name="option_amount0" value="12.99">
+<input type="hidden" name="option_select1" value="Let's Taco Bout' Prom">
+<input type="hidden" name="option_amount1" value="12.99">
+<input type="hidden" name="option_select2" value="Let's Go Bananas at Prom!">
+<input type="hidden" name="option_amount2" value="12.99">
+<input type="hidden" name="option_select3" value="Let's Freestyle at Prom">
+<input type="hidden" name="option_amount3" value="12.99">
+<input type="hidden" name="option_select4" value="It Would be a Huge SCORE!">
+<input type="hidden" name="option_amount4" value="12.99">
+<input type="hidden" name="option_select5" value="I mustache you a Question">
+<input type="hidden" name="option_amount5" value="12.99">
+<input type="hidden" name="option_index" value="0">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
                     <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
                 </div>
 
                 <ul class="nav nav-pills">
                 	<li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
-                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Reviews</a></li>
+                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Buy Now!</a></li>
                 </ul>
             </div>
             <!--Item: ends-->
@@ -162,252 +247,6 @@
 
 </body>
 </html>
-
-
-
-
-<!--
-	<div class="cover">
-    <div class="single_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Hold a heart hostage -- Well, maybe, that's not such a good way to put it. Either way this high quality poster will be delivered without a water mark within a few days depending how many orders there are.</p>
-           <p>Text reads: "Meet me at prom no cops"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="'Meet Me at Prom' (ransom note) Prom Poster">
-<input type="hidden" name="item_number" value="ransom_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"Meet Me at Prom" Ransom Note</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
-<br>
-
-<div class="cover">
-    <div class="d_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Want to woo her with monkeys and bananas? Or just have a playful way of asking her to prom? This is a good poster for you then!</p>
-           <p>Text reads: "Let's Go Bananas at Prom!"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="'Let's Go Bananas at Prom' Prom Poster">
-<input type="hidden" name="item_number" value="bananas_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"Let's Go Bananas at Prom!"</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
-
-<div class="cover">
-    <div class="asingle_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Mexican food enthusiast? Cheeky memer? Well, if either of those things appeal to you then this is a good choice in poster.</p>
-           <p>Text reads: "Let's Taco Bout' Prom"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value=""Let's Taco Bout' Prom" Prom Poster">
-<input type="hidden" name="item_number" value="taco_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"Let's Taco Bout' Prom!"</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
-
-<div class="cover">
-    <div class="bsingle_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Maybe you're an up and coming grafitti artist. Maybe you're apart of the 'hip' and 'cool crowd'; if so this would be certainly the choice to make.</p>
-           <p>Text reads: "Let's Freestyle at Prom"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-
-
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="'Let' Freestyle at Prom' Prom Poster">
-<input type="hidden" name="item_number" value="freestyle_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"Let's Freestyle at Prom"</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
-
-<div class="cover">
-    <div class="absingle_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Want to put her into your arms by sports puns? Then click that buy button!</p>
-           <p>Text reads: "It Would be a Huge SCORE!"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="'It Would be a Huge SCORE!' Prom Poster">
-<input type="hidden" name="item_number" value="score_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"It Would be a Huge SCORE!"</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
-
-
-<div class="cover">
-    <div class="aabsingle_deal">
-      <div class="content">
-        <div class="hover">
-           <div class="description">
-           <p>Puns bro. Women love puns.</p>
-           <p>Text reads: "I mustache you a Question"</p>
-
-          </div>
-          <div class="call_to_action">
-            <div class="button2">
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="'I mustache you a Question' Prom Poster">
-<input type="hidden" name="item_number" value="mustache_posters">
-<input type="hidden" name="amount" value="12.99">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="title">
-        <h1 class="name">
-"I mustache you a Question"</h1>
-        <h1 class="price">$12.99</h1>
-      </div>
-  </div>
-</div>
 <!-- paste above dis-->
 <div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center">
