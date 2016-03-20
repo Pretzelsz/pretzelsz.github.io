@@ -25,228 +25,181 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
 <script>
-    	function changeImage(elm) {
-			var obj = elm;
-			if (obj.getAttribute("class") == "thumb") {
-				obj.removeAttribute("class","full");
-				obj.setAttribute("class","full");
-				setTimeout(function(){
-					obj.nextElementSibling.style.display = "block";
-				}, 300)
+<script>
+var myApp = angular.module('myApp',['ngRoute']);
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+$routeProvider
+  .when('/home', {
+    templateUrl: 'home.html'
+  })
+  .when('/confirm', {
+     templateUrl: 'confirm.html'
+  })
+  .when('/checkout', {
+     templateUrl: 'checkout.html'
+  })
+  .when('/thankyou', {
+     templateUrl: 'thankyou.html'
+  });
+  $routeProvider.otherwise( { redirectTo: '/home' });
+  $locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
+}]);
+myApp.controller('DataController',['$scope','$http','$location',function($scope,$http,$location){
 
-			} else {
-				obj.removeAttribute("class","thumb");
-				obj.setAttribute("class","thumb");
-				obj.nextElementSibling.style.display = "none";
-			}
-		}
-
-		function closeImage(elm) {
-			var obj = elm;
-			if (obj.previousElementSibling.getAttribute("class") == "full") {
-				obj.previousElementSibling.removeAttribute("class","thumb");
-				obj.previousElementSibling.setAttribute("class","thumb");
-				obj.style.display = "none";
-			}
-		}
+  $scope.selectedMovie = "";
+  $scope.loaded = false;
+  $scope.shipping = 2;
+  $http.get('https://api.myjson.com/bins/4khft').success(function(data){
+  $scope.movies = data;
+  $scope.loaded = true;
+});
+  $scope.buy = function(movie){
+    $scope.status = "buy"
+    $scope.selectedMovie = movie;
+      $location.path('/confirm');
+    };
+  $scope.rent = function(movie){
+    $scope.status = "rent"
+    $scope.selectedMovie = movie;
+      $location.path('/confirm');
+  };
+  $scope.checkout = function() {
+    $location.path('/checkout');
+  }
+  $scope.pay = function(){
+    $location.path('/thankyou')
+  }
+}]);
+</script>
 </script>
 
 </head>
-<body ng-controller="StoreController as store">
-
-<div class="banner">
-	<div class="header">
-			<div class="logo">
-
-			   <h1><a href="index.html"><i><img src="" alt=" " /></i>PromPosters.com</a></h1>
-			</div>
-			<div class="top-nav">
-				<span class="menu"><img src="images/menu.png" alt=" " /></span>
-				<ul class="nav1">
-					<li><a href="index.html" data-toggle="modal" data-target="#myModal">Home</a></li>
-					<li><a href="prom.html" data-toggle="modal" data-target="#myModal2">Prom</a></li>
-					<li><a href="404.html" data-toggle="modal" data-target="#myModal1">Formal</a></li>
-					<li><a href="404.html" data-toggle="modal" data-target="#myModal3">Homecoming</a></li>
-					<li><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="display" value="1">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-</li>
-				</ul>
-						<!-- script-for-menu -->
-						 <script>
-						   $( "span.menu" ).click(function() {
-							 $( "ul.nav1" ).slideToggle( 300, function() {
-							 // Animation complete.
-							  });
-							 });
-						</script>
-						<!-- /script-for-menu -->
-			</div>
-			<div class="clearfix"> </div>
-	</div>
-	<div class="container">
-		<div class="banner-info">
-			<h3><img src="images/header.png"></h3>
-		</div>
-	</div>
-</div>
-<div class="content-bottom">
-
-</div>
-
-<script>
-// Angular JS Test App
-
-(function() {
-
-var app = angular.module('store', []);
-
-app.controller("StoreController", function() {
-	this.products = gems;
-});
-
-var imgPath = "images";
-
-var gems = [{
-	name: "Ransom Note",
-	price: "12.99",
-	description: "Hold a heart hostage -- Well, maybe, that's not such a good way to put it. Either way this high quality poster will be delivered without a water mark within a few days depending how many orders there are.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/example1.jpeg"
-}, {
-	name: "Taco Bout' Prom",
-	price: "12.99",
-	description: "More puns! That father thing I made up, but speaking from personal experience women totally dig puns.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/taco.jpg"
-}, {
-	name: "SCORE!",
-	price: "12.99",
-	description: "On a sports team that has scores? Then bro, this is the poster for you. Perfect for the speacially sporty someone.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/score.jpg"
-}, {
-	name: "Mustache",
-	price: "12.99",
-	description: "Like my father says 'Son, women love puns. Especially puns with mustaches'. And if you trust my father as much as I do you should totally buy this poster.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/mus.jpg"
-}, {
-	name: "Bananas",
-	price: "12.99",
-	description: "Animal fan? Banana fan? Maybe you are just looking for a playful way to ask her out. Well look no further than this!",
-	canPurchase: false,
-	soldOut: true,
-	image: imgPath + "/example2.jpeg"
-}, {
-
-	name: "Freestyle",
-	price: "12.99",
-	description: "Up and coming grafiti artist? Maybe you tryna build that street cred. Maybe you tryna appeal to that one girl with that cool hair but she -- Nevermind. ",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/free.jpg"
-}]
-})();
-</script>
-
-
-<div class="wrapper">
-
-    <div class="centered-wrapper">
-
-        <div class="general-desc-wrap">
-
-            <h1>block</h1>
-
+<body ng-cloak ng-controller="DataController">
+  <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">Movie store</a>
         </div>
-
-        <!--Item Wrap: begins-->
-        <div class="item-wrap">
-
-            <!--Item: begins-->
-            <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
-                <h2>{{product.name | uppercase}}</h2>
-                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" style="display:block;" />
-                <span class="close-icon" onclick="closeImage(this);"></span>
-                <p>{{product.description | limitTo : 95}}</p>
-                <h3>{{product.price | currency}}</h3>
-
-                <div class="panel" ng-show="tab === 1">
-                	<h2>Description</h2>
-                    <p>{{product.description}}</p>
-                    <span class="close-icon" ng-click="tab = 0" style="display:flex;"></span>
-                </div>
-
-                <div class="panel" ng-show="tab === 2">
-                	<h2>Buy now!</h2>
-									<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="Prom Poster">
-<input type="hidden" name="item_number" value="prom_poster">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
-<table>
-<tr><td><input type="hidden" name="on0" value="Type (Temp Fix)">Poster Type (Scroll through)(temp fix)</td></tr><tr><td><select name="os0">
-	<option value="Meet me at Prom">Meet me at Prom $12.99 USD</option>
-	<option value="Let's Taco Bout' Prom">Let's Taco Bout' Prom $12.99 USD</option>
-	<option value="Let's Go Bananas at Prom!">Let's Go Bananas at Prom! $12.99 USD</option>
-	<option value="Let's Freestyle at Prom">Let's Freestyle at Prom $12.99 USD</option>
-	<option value="It Would be a Huge SCORE!">It Would be a Huge SCORE! $12.99 USD</option>
-	<option value="I mustache you a Question">I mustache you a Question $12.99 USD</option>
-</select> </td></tr>
-</table>
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="option_select0" value="Meet me at Prom">
-<input type="hidden" name="option_amount0" value="12.99">
-<input type="hidden" name="option_select1" value="Let's Taco Bout' Prom">
-<input type="hidden" name="option_amount1" value="12.99">
-<input type="hidden" name="option_select2" value="Let's Go Bananas at Prom!">
-<input type="hidden" name="option_amount2" value="12.99">
-<input type="hidden" name="option_select3" value="Let's Freestyle at Prom">
-<input type="hidden" name="option_amount3" value="12.99">
-<input type="hidden" name="option_select4" value="It Would be a Huge SCORE!">
-<input type="hidden" name="option_amount4" value="12.99">
-<input type="hidden" name="option_select5" value="I mustache you a Question">
-<input type="hidden" name="option_amount5" value="12.99">
-<input type="hidden" name="option_index" value="0">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-
-                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
-                </div>
-
-                <ul class="nav nav-pills">
-                	<li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
-                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Buy Now!</a></li>
-                </ul>
-            </div>
-            <!--Item: ends-->
-
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="home">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  <img class ="center-block" ng-hide="loaded" src="http://imgh.us/ring.gif" alt="loader" />
+  <div class="container">
+ <div ng-view></div>
+  </div>
+  <script type="text/ng-template" id="home.html">
+    <div ng-repeat="movie in movies" class="col-sm-12 col-lg-3 col-md-6">
+    <div class="thumbnail">
+      <img class="poster" ng-src="{{movie.image}}" alt="">
+      <div class="caption text-center">
+        <h4>{{movie.name}}</h4>
+        <p><a ng-click="buy(movie)" class="btn btn-primary" role="button">Buy - {{movie.buy | currency:"$":0}}</a> <a ng-click="rent(movie)"class="btn btn-default" role="button">Rent - {{movie.rent | currency:"$":0}}</a></p>
+      </div>
+    </div>
+</div></script>
+  <script type="text/ng-template" id="confirm.html">
+    <ol class="breadcrumb">
+    <li><a href="home">Home</a></li>
+    <li><a href="confirm">Buy {{selectedMovie.name}}</a></li>
+    </ol>
+    <h2>{{status === 'buy' ? 'Confirm DVD purchase':'Confirm rental purchase'}}</h2>
+    <hr />
+    <div class="row">
+    <div class="col-lg-3"><img ng-src="{{selectedMovie.image}}">
+      <h4>{{selectedMovie.name}}</h4>
+      </div>
+      <div class="col-lg-6">
+        <h4 class="storyline">Storyline</h4>
+        <p>{{selectedMovie.storyline}}</p></div>
+      <div class="col-lg-3">
+        <div class="row">
+        <div class="col-lg-6">Price :</div>
+          <div class="col-lg-6"><span class="pull-right">{{status==='buy'?selectedMovie.buy:selectedMovie.rent}}</span></div>
         </div>
-        <!--Item Wrap: ends-->
-
+        <div class="row">
+        <div class="col-lg-6">shipping :</div>
+          <div class="col-lg-6"><span class="pull-right">{{shipping | currency}}</span></div>
+        </div>
+        <hr />
+        <div class="row">
+        <div class="col-lg-6">Total :</div>
+        <div class="col-lg-6"><span class="pull-right">{{status==='buy'?selectedMovie.buy + shipping :selectedMovie.rent + shipping | currency}}</span></div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-lg-12"><button class="btn btn-primary pull-right" ng-click="checkout()">checkout</button></div>
+        </div>
+        </div>
     </div>
 
-</div>
+  </script>
+  <script type="text/ng-template" id="checkout.html">
+     <ol class="breadcrumb">
+    <li><a href="home">Home</a></li>
+    <li><a href="confirm">Buy {{selectedMovie.name}}</a></li>
+       <li><a href="checkout">checkout</a></li>
+    </ol>
+    <div class="row">
+    <div class="col-md-4"></div>
+      <div class="col-md-4">
+      <form>
+            <div class='form-row'>
+              <div class='col-xs-12 form-group required'>
+                <label class='control-label'>Name on Card</label>
+                <input class='form-control' size='4' type='text' value="John doe">
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Card Number</label>
+                <input autocomplete='off' class='form-control' size='20' type='text' value="4234 5678 9423 8765">
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-xs-4 form-group cvc required'>
+                <label class='control-label'>CVC</label>
+                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' value='311' size='4' type='text'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                <label class='control-label'>Expiration</label>
+                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' value='08'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                <label class='control-label'> </label>
+                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' value='2036'>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-md-12'>
+                <div class='form-control total btn btn-info'>
+                  Total:
+                  <span class='amount'>{{status ==='buy'?selectedMovie.buy + shipping : selectedMovie.rent + shipping | currency}}</span>
+                </div>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-md-12 form-group'>
+                <button class='form-control btn btn-primary submit-button' ng-click="pay()">Pay »</button>
+              </div>
+            </div>
+          </form>
+       </div>
+    <div class="col-md-4"></div>
+    </div>
+  </script>
+  <script type="text/ng-template" id="thankyou.html">
+  <div class="jumbotron text-center"><h2>Thank you for purchasing {{selectedMovie.name}}</h2><a href="home "class="btn btn-info">Continue shopping</a></div></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 
-</body>
-</html>
+
 <!-- paste above dis-->
 <div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center">
