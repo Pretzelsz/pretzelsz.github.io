@@ -165,7 +165,7 @@ var gems = [{
 
         <div class="general-desc-wrap">
 
-            <h1>images are real messed up, workingsd on fix</h1>
+            <h1>block</h1>
 
         </div>
 
@@ -175,7 +175,7 @@ var gems = [{
             <!--Item: begins-->
             <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
                 <h2>{{product.name | uppercase}}</h2>
-                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
+                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" style="display:block;" />
                 <span class="close-icon" onclick="closeImage(this);"></span>
                 <p>{{product.description | limitTo : 95}}</p>
                 <h3>{{product.price | currency}}</h3>
@@ -183,7 +183,7 @@ var gems = [{
                 <div class="panel" ng-show="tab === 1">
                 	<h2>Description</h2>
                     <p>{{product.description}}</p>
-                    <span class="close-icon" ng-click="tab = 0" style="display:list-item;"></span>
+                    <span class="close-icon" ng-click="tab = 0" style="display:flex;"></span>
                 </div>
 
                 <div class="panel" ng-show="tab === 2">
