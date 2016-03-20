@@ -107,6 +107,7 @@ myApp.controller('DataController',['$scope','$http','$location',function($scope,
         <div class="col-lg-6">Price :</div>
           <div class="col-lg-6"><span class="pull-right">{{status==='buy'?selectedMovie.buy:selectedMovie.rent}}</span></div>
         </div>
+<<<<<<< HEAD
         <div class="row">
         <div class="col-lg-6">shipping :</div>
           <div class="col-lg-6"><span class="pull-right">{{shipping | currency}}</span></div>
@@ -162,6 +163,69 @@ myApp.controller('DataController',['$scope','$http','$location',function($scope,
                 <div class='form-control total btn btn-info'>
                   Total:
                   <span class='amount'>{{status ==='buy'?selectedMovie.buy + shipping : selectedMovie.rent + shipping | currency}}</span>
+=======
+
+        <!--Item Wrap: begins-->
+        <div class="item-wrap">
+
+            <!--Item: begins-->
+            <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
+                <h2>{{product.name | uppercase}}</h2>
+                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
+                <span class="close-icon" onclick="closeImage(this);"></span>
+                <p>{{product.description | limitTo : 95}}</p>
+                <h3>{{product.price | currency}}</h3>
+
+                <div class="panel" ng-show="tab === 1">
+                	<h2>Description</h2>
+                    <p>{{product.description}}</p>
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+                </div>
+
+                <div class="panel" ng-show="tab === 2">
+                	<h2>Buy now!</h2>
+									<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="business" value="saturday248@gmail.com">
+<input type="hidden" name="lc" value="BM">
+<input type="hidden" name="item_name" value="Prom Poster">
+<input type="hidden" name="item_number" value="prom_poster">
+<input type="hidden" name="button_subtype" value="products">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="add" value="1">
+<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
+<table>
+<tr><td><input type="hidden" name="on0" value="Type (Temp Fix)">Poster Type (Scroll through)(temp fix)</td></tr><tr><td><select name="os0">
+	<option value="Meet me at Prom">Meet me at Prom $12.99 USD</option>
+	<option value="Let's Taco Bout' Prom">Let's Taco Bout' Prom $12.99 USD</option>
+	<option value="Let's Go Bananas at Prom!">Let's Go Bananas at Prom! $12.99 USD</option>
+	<option value="Let's Freestyle at Prom">Let's Freestyle at Prom $12.99 USD</option>
+	<option value="It Would be a Huge SCORE!">It Would be a Huge SCORE! $12.99 USD</option>
+	<option value="I mustache you a Question">I mustache you a Question $12.99 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="option_select0" value="Meet me at Prom">
+<input type="hidden" name="option_amount0" value="12.99">
+<input type="hidden" name="option_select1" value="Let's Taco Bout' Prom">
+<input type="hidden" name="option_amount1" value="12.99">
+<input type="hidden" name="option_select2" value="Let's Go Bananas at Prom!">
+<input type="hidden" name="option_amount2" value="12.99">
+<input type="hidden" name="option_select3" value="Let's Freestyle at Prom">
+<input type="hidden" name="option_amount3" value="12.99">
+<input type="hidden" name="option_select4" value="It Would be a Huge SCORE!">
+<input type="hidden" name="option_amount4" value="12.99">
+<input type="hidden" name="option_select5" value="I mustache you a Question">
+<input type="hidden" name="option_amount5" value="12.99">
+<input type="hidden" name="option_index" value="0">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
+>>>>>>> parent of 99ea818... flex
                 </div>
               </div>
             </div>
