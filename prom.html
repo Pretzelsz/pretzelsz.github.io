@@ -102,152 +102,215 @@
 // Angular JS Test App
 
 (function() {
+  var app = angular.module("store", []);
 
-var app = angular.module('store', []);
+  app.controller("StoreController", ["$http", function($http) {
+    this.products = gems;
+  }]);
+  app.controller("PanelController", function() {
+    this.tab = 0;
 
-app.controller("StoreController", function() {
-	this.products = gems;
-});
+    this.selectTab =  function(setTab) {
+      this.tab = setTab;
+    };
 
-var imgPath = "images";
+    this.isSelected = function(checkTab) {
+      return this.tab === checkTab;
+    }
+  });
+  app.controller("ReviewController", function() {
+    this.review = {};
 
-var gems = [{
-	name: "Ransom Note",
-	price: "12.99",
-	description: "Hold a heart hostage -- Well, maybe, that's not such a good way to put it. Either way this high quality poster will be delivered without a water mark within a few days depending how many orders there are.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/example1.jpeg"
-}, {
-	name: "Taco Bout' Prom",
-	price: "12.99",
-	description: "More puns! That father thing I made up, but speaking from personal experience women totally dig puns.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/taco.jpg"
-}, {
-	name: "SCORE!",
-	price: "12.99",
-	description: "On a sports team that has scores? Then bro, this is the poster for you. Perfect for the speacially sporty someone.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/score.jpg"
-}, {
-	name: "Mustache",
-	price: "12.99",
-	description: "Like my father says 'Son, women love puns. Especially puns with mustaches'. And if you trust my father as much as I do you should totally buy this poster.",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/mus.jpg"
-}, {
-	name: "Bananas",
-	price: "12.99",
-	description: "Animal fan? Banana fan? Maybe you are just looking for a playful way to ask her out. Well look no further than this!",
-	canPurchase: false,
-	soldOut: true,
-	image: imgPath + "/example2.jpeg"
-}, {
-
-	name: "Freestyle",
-	price: "12.99",
-	description: "Up and coming grafiti artist? Maybe you tryna build that street cred. Maybe you tryna appeal to that one girl with that cool hair but she -- Nevermind. ",
-	canPurchase: true,
-	soldOut: false,
-	image: imgPath + "/free.jpg"
-}]
+    this.addReview = function(product) {
+      product.reviews.push(this.review);
+      this.review = {};
+    }
+  });
+  var gems = [
+    {
+      name: "Score!",
+      price: 14.99,
+      description: "On a sports team that has scores? Then bro, this is the poster for you. Perfect for the speacially sporty someone.",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/score.jpg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+    {
+      name: "Taco Bout' Prom",
+      price: 14.99,
+      description: "More puns! That father thing I made up, but speaking from personal experience women totally dig puns.",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/taco.jpg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+    {
+      name: "Ransom Note",
+      price: 14.99,
+      description: "Hold a heart hostage -- Well, maybe, that's not such a good way to put it. Either way this high quality poster will be delivered without a water mark within a few days depending how many orders there are.",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/ransom.jpeg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+    {
+      name: "Mustache",
+      price: 14.99,
+      description: "Like my father says 'Son, women love puns. Especially puns with mustaches'. And if you trust my father as much as I do you should totally buy this poster.",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/mus.jpg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+    {
+      name: "Freestyle",
+      price: 14.99,
+      description: "Up and coming grafiti artist? Maybe you tryna build that street cred. Maybe you tryna appeal to that one girl with that cool hair but she -- Nevermind. ",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/free.jpg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+    {
+      name: "Bananas",
+      price: 14.99,
+      description: "Animal fan? Banana fan? Maybe you are just looking for a playful way to ask her out. Well look no further than this!",
+      canPurchase: true,
+      soldOut: false,
+      image: "images/ban.jpeg",
+      shine: 70,
+      faces: 5,
+      rarity: 2,
+      color: "White",
+      reviews: [
+        {
+        },
+      ],
+    },
+  ];
 })();
+
 </script>
+<div id="products" class="container">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+        <img ng-src="{{product.image}}" class="img-responsive center-block"/>
+        <section ng-controller="PanelController as panel">
+          <ul class="nav nav-pills">
+            <li ng-class="{active: panel.isSelected(0)}">
+              <a href ng-click="panel.selectTab(0)">Description</a>
+            </li>
+            <li ng-class="{active: panel.isSelected(1)}">
+              <a href ng-click="panel.selectTab(1)">Specifications</a>
+            </li>
+            <li ng-class="{active: panel.isSelected(2)}">
+              <a href ng-click="panel.selectTab(2)">Purchase</a>
+            </li>
+          </ul>
+          <div id="desc-panel" class="panel" ng-show="panel.isSelected(0)">
+            <h4>Description</h4>
+            <p>{{product.description}}</p>
+          </div>
+          <div id="spec-panel" class="panel" ng-show="panel.isSelected(1)">
+            <h4>Specifications</h4>
+            <p><b>Legnth: </b> 20" or 32"
+                </br>
+              <b>Width: </b> 32" or 20"
+                </br>
+              <b>Material: </b>Polystyrene
+                </br>
+              <b>Orientation: </b>Depends on poster, see image
+                </br>
+            </p>
+          </div>
+          <div id="rev-panel" class="panel" ng-show="panel.isSelected(2)">
+            <h4>Purchase</h4>
+            <blockquote ng-repeat="review in product.reviews">
+              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="business" value="saturday248@gmail.com">
+  <input type="hidden" name="lc" value="BM">
+  <input type="hidden" name="item_name" value="Prom Poster">
+  <input type="hidden" name="item_number" value="prom_poster">
+  <input type="hidden" name="button_subtype" value="products">
+  <input type="hidden" name="no_note" value="0">
+  <input type="hidden" name="add" value="1">
+  <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
+  <table>
+  <tr><td><input type="hidden" name="on0" value="Select the poster you wish to buy! (temporary fix :])">Select the poster you wish to buy! (temporary fix :])</td></tr><tr><td><select name="os0">
+  	<option value="It Would be a Huge SCORE!">It Would be a Huge SCORE! $14.99 USD</option>
+  	<option value="Let's Taco Bout' Prom">Let's Taco Bout' Prom $14.99 USD</option>
+  	<option value="Meet me at Prom">Meet me at Prom $14.99 USD</option>
+  	<option value="I mustache you a Question">I mustache you a Question $14.99 USD</option>
+  	<option value="Let's Freestyle at Prom">Let's Freestyle at Prom $14.99 USD</option>
+  	<option value="Let's Go Bananas at Prom!">Let's Go Bananas at Prom! $14.99 USD</option>
+  </select> </td></tr>
+  </table>
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="option_select0" value="It Would be a Huge SCORE!">
+  <input type="hidden" name="option_amount0" value="14.99">
+  <input type="hidden" name="option_select1" value="Let's Taco Bout' Prom">
+  <input type="hidden" name="option_amount1" value="14.99">
+  <input type="hidden" name="option_select2" value="Meet me at Prom">
+  <input type="hidden" name="option_amount2" value="14.99">
+  <input type="hidden" name="option_select3" value="I mustache you a Question">
+  <input type="hidden" name="option_amount3" value="14.99">
+  <input type="hidden" name="option_select4" value="Let's Freestyle at Prom">
+  <input type="hidden" name="option_amount4" value="14.99">
+  <input type="hidden" name="option_select5" value="Let's Go Bananas at Prom!">
+  <input type="hidden" name="option_amount5" value="14.99">
+  <input type="hidden" name="option_index" value="0">
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
 
 
-<div class="wrapper">
+        </section>
+      </li>
+    </ul>
+  </div>
 
-    <div class="centered-wrapper">
-
-        <div class="general-desc-wrap">
-
-            <h1>images are real messed up, working on fix</h1>
-
-        </div>
-
-        <!--Item Wrap: begins-->
-        <div class="item-wrap">
-
-            <!--Item: begins-->
-            <div class="item" ng-repeat="product in store.products | orderBy: 'name'">
-                <h2>{{product.name | uppercase}}</h2>
-                <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
-                <span class="close-icon" onclick="closeImage(this);"></span>
-                <p>{{product.description | limitTo : 95}}</p>
-                <h3>{{product.price | currency}}</h3>
-
-                <div class="panel" ng-show="tab === 1">
-                	<h2>Description</h2>
-                    <p>{{product.description}}</p>
-                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
-                </div>
-
-                <div class="panel" ng-show="tab === 2">
-                	<h2>Buy now!</h2>
-									<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="saturday248@gmail.com">
-<input type="hidden" name="lc" value="BM">
-<input type="hidden" name="item_name" value="Prom Poster">
-<input type="hidden" name="item_number" value="prom_poster">
-<input type="hidden" name="button_subtype" value="products">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
-<table>
-<tr><td><input type="hidden" name="on0" value="Type (Temp Fix)">Poster Type (Scroll through)(temp fix)</td></tr><tr><td><select name="os0">
-	<option value="Meet me at Prom">Meet me at Prom $12.99 USD</option>
-	<option value="Let's Taco Bout' Prom">Let's Taco Bout' Prom $12.99 USD</option>
-	<option value="Let's Go Bananas at Prom!">Let's Go Bananas at Prom! $12.99 USD</option>
-	<option value="Let's Freestyle at Prom">Let's Freestyle at Prom $12.99 USD</option>
-	<option value="It Would be a Huge SCORE!">It Would be a Huge SCORE! $12.99 USD</option>
-	<option value="I mustache you a Question">I mustache you a Question $12.99 USD</option>
-</select> </td></tr>
-</table>
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="option_select0" value="Meet me at Prom">
-<input type="hidden" name="option_amount0" value="12.99">
-<input type="hidden" name="option_select1" value="Let's Taco Bout' Prom">
-<input type="hidden" name="option_amount1" value="12.99">
-<input type="hidden" name="option_select2" value="Let's Go Bananas at Prom!">
-<input type="hidden" name="option_amount2" value="12.99">
-<input type="hidden" name="option_select3" value="Let's Freestyle at Prom">
-<input type="hidden" name="option_amount3" value="12.99">
-<input type="hidden" name="option_select4" value="It Would be a Huge SCORE!">
-<input type="hidden" name="option_amount4" value="12.99">
-<input type="hidden" name="option_select5" value="I mustache you a Question">
-<input type="hidden" name="option_amount5" value="12.99">
-<input type="hidden" name="option_index" value="0">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-
-                    <span class="close-icon" ng-click="tab = 0" style="display:block;"></span>
-                </div>
-
-                <ul class="nav nav-pills">
-                	<li ng-class="{active:tab === 1}"><a href ng-click="tab = 1">Description</a></li>
-                    <li ng-class="{active:tab === 2}"><a href ng-click="tab = 2">Buy Now!</a></li>
-                </ul>
-            </div>
-            <!--Item: ends-->
-
-        </div>
-        <!--Item Wrap: ends-->
-
-    </div>
-
-</div>
-
-</body>
-</html>
-<!-- paste above dis-->
+<!-- paste above dis-
 <div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center">
 			<img src="images/example1.jpeg" alt="" />
@@ -256,7 +319,7 @@ var gems = [{
 			<img src="images/example2.jpeg" alt="" />
 		</div>
 		<div class="clearfix"></div>
-		<div class="btm-pos">
+	<!--	<div class="btm-pos">
 			<h3>What is PromPosters.com?</h3>
 			<p> PromPosters.com is a service offering proffesionally constructed Prom, Homecoming, and Formal Posters!</p>
 		</div>
@@ -267,7 +330,7 @@ var gems = [{
 		<h2><a href="index.html">PromPosters.com</a></h2>
 		<p>© 2016 PromPosters.com. All Rights Reserved | Layout by <a href="https://w3layouts.com/" target="_blank">W3Layouts</a> | Design: quinn@knyvez.com</p>
 		<ul>
-			<!--FACES GO HERE -->
+
 		</ul>
 	</div>
 </div>
